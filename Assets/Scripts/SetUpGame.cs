@@ -3,6 +3,7 @@ using CampaignManager.GameManager;
 using CampaignManager.DifficultyManager;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 namespace CampaignManager.SetUpGame
 {
@@ -12,11 +13,23 @@ namespace CampaignManager.SetUpGame
 
         [SerializeField] private GameObject candidateCardContainer;
         [SerializeField] private GameObject candidateCardPrefab;
+
+
+
+        private Database.DatabaseManager dataBaseManager;    
+        private Database.CandidateDB candidateDB;
+        private Database.PartyDB partyDB;
+        private Database.StateDB stateDB;
+    
         private List<GameObject> candidateCards = new List<GameObject>();
 
         private void Start()
         {
             GameDifficulty = GameManager.GameManager.Instance.DifficultyLevel;
+            dataBaseManager = Database.DatabaseManager.Instance;
+            candidateDB = dataBaseManager.FetchDatabase("Candidate").GetComponent<Database.CandidateDB>();
+            partyDB = dataBaseManager.FetchDatabase("Party").GetComponent<Database.PartyDB>();
+            stateDB = dataBaseManager.FetchDatabase("State").GetComponent<Database.StateDB>();
             SetUpCandidateCards(GameDifficulty);
         }
 
@@ -52,6 +65,7 @@ namespace CampaignManager.SetUpGame
             }
 
             AdjustSpacingAndSizeBasedOnNumberOfCards(numberOfCards);
+            DesignCandidateCards(numberOfCards);
 
         }
 
@@ -77,6 +91,63 @@ namespace CampaignManager.SetUpGame
             }
         }
 
+        private void DesignCandidateCards(int numberOfCards)
+        {
+            
+            List<Database.CandidateDBColumns> candidateEntries = new List<Database.CandidateDBColumns>(candidateDB.entries);
+            
+            for (int i = 0; i < numberOfCards; i++)
+            {
+                int chosenCandidate = Random.Range(0, candidateEntries.Count);
+
+                GameObject card = candidateCards[i];
+                UI.Card.CandidateCard cardScript = card.GetComponent<UI.Card.CandidateCard>();
+
+               
+
+                if (cardScript != null)
+                {
+                    var candidateData = candidateDB.GetData<Database.CandidateDBColumns>(chosenCandidate.ToString());
+                    var partyData = partyDB.GetData<Database.PartyDBColumns>(candidateData.PARTY_ID.ToString());
+                    var stateData = stateDB.GetData<Database.StateDBColumns>(candidateData.STATE_ABBR.ToString());
+                    
+                    if (candidateData != null)
+                    {
+                        cardScript.CardNameText.text = $"{candidateData.FIRST_NAME} {candidateData.LAST_NAME}";
+                        cardScript.CardImage.sprite = candidateData.CANDIDATE_IMAGE.sprite;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"No candidate data found for CANDIDATE_ID: {candidateData.CANDIDATE_ID}");
+                    }
+
+                    if (partyData != null)
+                    {
+                        cardScript.CardPartyText.text = partyData.PARTY_NAME;
+                        cardScript.CardBackground.color = partyData.PARTY_COLOR;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"No party data found for PARTY_ID: {candidateData.PARTY_ID}");
+                    }
+
+                    if (stateData != null)
+                    {
+                        cardScript.CardStateText.text = stateData.STATE_NAME;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"No state data found for STATE_ABBR: {candidateData.STATE_ABBR}");
+                    }
+
+                    // Remove the chosen candidate to avoid duplicates
+                    candidateEntries.Remove(candidateEntries[chosenCandidate]);
+                }
+
+                
+            }
+
+        }
         private int CreateCandidateCards(int numberOfCards)
         {
             for (int i = 0; i < numberOfCards; i++)

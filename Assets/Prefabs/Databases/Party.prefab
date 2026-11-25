@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4706863475087189813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6873810357415969241}
+  - component: {fileID: 1096433387537441287}
+  m_Layer: 0
+  m_Name: Party
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6873810357415969241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706863475087189813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 497.67294, y: 320.3206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096433387537441287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706863475087189813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ba12e86220fd7419161079aa0ccd07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CampaignManager.Database.PartyDB
+  databaseName: Party
+  primaryKey: PARTY_ID
+  foreignKeys: []
+  entries:
+  - PARTY_ID: 0
+    PARTY_NAME: Incumbent
+    PARTY_DESCRIPTION: Center-Left
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+    PARTY_COLOR: {r: 0.16509432, g: 0.23789325, b: 1, a: 1}
+  - PARTY_ID: 1
+    PARTY_NAME: Opposition
+    PARTY_DESCRIPTION: Center-Right
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: 0551ecf659d25dc48a7a19213da3ac07, type: 3}
+    PARTY_COLOR: {r: 1, g: 0.16470587, b: 0.1805771, a: 1}
+  - PARTY_ID: 2
+    PARTY_NAME: Third-Party
+    PARTY_DESCRIPTION: Centrist
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: d6e3b7a5b35b78243953f29aa6c194e5, type: 3}
+    PARTY_COLOR: {r: 0.68059903, g: 0.6886792, b: 0.26312745, a: 1}
+  - PARTY_ID: 3
+    PARTY_NAME: Progressive Party
+    PARTY_DESCRIPTION: Left-Wing
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: ef8631e19ea8bbf47b810bc4a0408395, type: 3}
+    PARTY_COLOR: {r: 0.38562214, g: 0.6901961, b: 0.2627451, a: 1}

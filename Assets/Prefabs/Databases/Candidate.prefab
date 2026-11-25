@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1813975923140429311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4592252349373751245}
+  - component: {fileID: 3385039773530698208}
+  m_Layer: 0
+  m_Name: Candidate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4592252349373751245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813975923140429311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 497.67294, y: 320.3206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3385039773530698208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813975923140429311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43180dc3c49514846964ee1d649461a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CampaignManager.Database.CandidateDB
+  databaseName: Candidate
+  primaryKey: CANDIDATE_ID
+  foreignKeys:
+  - TableName: Party
+    ColumnName: PARTY_ID
+  - TableName: State
+    ColumnName: STATE_ID
+  - TableName: Job
+    ColumnName: JOB_ID
+  entries:
+  - CANDIDATE_ID: 1
+    FIRST_NAME: Jane
+    LAST_NAME: Smtih
+    PARTY_ID: 1
+    STATE_ABBR: MI
+    JOB_ID: 1
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: 0551ecf659d25dc48a7a19213da3ac07, type: 3}
+  - CANDIDATE_ID: 2
+    FIRST_NAME: Rat
+    LAST_NAME: King
+    PARTY_ID: 2
+    STATE_ABBR: MS
+    JOB_ID: 2
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: d6e3b7a5b35b78243953f29aa6c194e5, type: 3}
+  - CANDIDATE_ID: 0
+    FIRST_NAME: John
+    LAST_NAME: Smith
+    PARTY_ID: 0
+    STATE_ABBR: NE
+    JOB_ID: 0
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}

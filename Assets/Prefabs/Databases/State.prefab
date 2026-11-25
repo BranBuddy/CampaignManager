@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4102104482547538763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3549172513764111755}
+  - component: {fileID: 366641144873964295}
+  m_Layer: 0
+  m_Name: State
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3549172513764111755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102104482547538763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 169.66666, y: 263.99976, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366641144873964295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4102104482547538763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a46c8d73ad4ec42afa711737e79d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CampaignManager.Database.StateDB
+  databaseName: State
+  primaryKey: STATE_ID
+  foreignKeys: []
+  entries:
+  - STATE_ABBR: AL
+    STATE_NAME: Alabama
+  - STATE_ABBR: AS
+    STATE_NAME: Alaska
+  - STATE_ABBR: AR
+    STATE_NAME: Arizona
+  - STATE_ABBR: AR
+    STATE_NAME: Arkansas
+  - STATE_ABBR: CA
+    STATE_NAME: California
+  - STATE_ABBR: CO
+    STATE_NAME: Colorado
+  - STATE_ABBR: CT
+    STATE_NAME: Connecticut
+  - STATE_ABBR: FL
+    STATE_NAME: Florida
+  - STATE_ABBR: GA
+    STATE_NAME: Georgia
+  - STATE_ABBR: HI
+    STATE_NAME: Hawaii
+  - STATE_ABBR: ID
+    STATE_NAME: Idaho
+  - STATE_ABBR: IL
+    STATE_NAME: Illinois
+  - STATE_ABBR: IN
+    STATE_NAME: Indiana
+  - STATE_ABBR: IA
+    STATE_NAME: Iowa
+  - STATE_ABBR: KS
+    STATE_NAME: Kansas
+  - STATE_ABBR: KY
+    STATE_NAME: Kentucky
+  - STATE_ABBR: LA
+    STATE_NAME: Louisiana
+  - STATE_ABBR: ME
+    STATE_NAME: Maine
+  - STATE_ABBR: MD
+    STATE_NAME: Maryland
+  - STATE_ABBR: MA
+    STATE_NAME: Massachusetts
+  - STATE_ABBR: MI
+    STATE_NAME: Missouri
+  - STATE_ABBR: DE
+    STATE_NAME: Delaware
+  - STATE_ABBR: MN
+    STATE_NAME: Minnesota
+  - STATE_ABBR: MS
+    STATE_NAME: Mississipi
+  - STATE_ABBR: MO
+    STATE_NAME: Missouri
+  - STATE_ABBR: MT
+    STATE_NAME: Montana
+  - STATE_ABBR: NE
+    STATE_NAME: Nebraska
+  - STATE_ABBR: NV
+    STATE_NAME: Nevada
+  - STATE_ABBR: NH
+    STATE_NAME: New Hampshire
+  - STATE_ABBR: NJ
+    STATE_NAME: New Jersey
+  - STATE_ABBR: NM
+    STATE_NAME: New Mexico
+  - STATE_ABBR: NY
+    STATE_NAME: New York
+  - STATE_ABBR: NC
+    STATE_NAME: North Carolina
+  - STATE_ABBR: ND
+    STATE_NAME: North Dakota
+  - STATE_ABBR: OH
+    STATE_NAME: Ohio
+  - STATE_ABBR: OK
+    STATE_NAME: Oklahoma
+  - STATE_ABBR: OR
+    STATE_NAME: Oregon
+  - STATE_ABBR: PA
+    STATE_NAME: Pennsylvania
+  - STATE_ABBR: RI
+    STATE_NAME: Rhode Island
+  - STATE_ABBR: SC
+    STATE_NAME: South Carolina
+  - STATE_ABBR: SD
+    STATE_NAME: South Dakota
+  - STATE_ABBR: TN
+    STATE_NAME: Tennesse
+  - STATE_ABBR: TX
+    STATE_NAME: Texas
+  - STATE_ABBR: UT
+    STATE_NAME: Utah
+  - STATE_ABBR: VT
+    STATE_NAME: Vermont
+  - STATE_ABBR: VA
+    STATE_NAME: Virigna
+  - STATE_ABBR: WA
+    STATE_NAME: Washington
+  - STATE_ABBR: WV
+    STATE_NAME: West Virgina
+  - STATE_ABBR: WI
+    STATE_NAME: Wisconsin
+  - STATE_ABBR: WY
+    STATE_NAME: Wyoming
+  - STATE_ABBR: PR
+    STATE_NAME: Puerto Rico
+  - STATE_ABBR: GU
+    STATE_NAME: Guam

@@ -48,23 +48,33 @@ MonoBehaviour:
   primaryKey: PARTY_ID
   foreignKeys: []
   entries:
-  - PARTY_ID: 0
+  - PARTY_ID: INC
     PARTY_NAME: Incumbent
     PARTY_DESCRIPTION: Center-Left
     PARTY_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
     PARTY_COLOR: {r: 0.16509432, g: 0.23789325, b: 1, a: 1}
-  - PARTY_ID: 1
+  - PARTY_ID: OPP
     PARTY_NAME: Opposition
     PARTY_DESCRIPTION: Center-Right
     PARTY_IMAGE: {fileID: 3576559370988346463, guid: 0551ecf659d25dc48a7a19213da3ac07, type: 3}
     PARTY_COLOR: {r: 1, g: 0.16470587, b: 0.1805771, a: 1}
-  - PARTY_ID: 2
+  - PARTY_ID: TPA
     PARTY_NAME: Third-Party
     PARTY_DESCRIPTION: Centrist
     PARTY_IMAGE: {fileID: 3576559370988346463, guid: d6e3b7a5b35b78243953f29aa6c194e5, type: 3}
     PARTY_COLOR: {r: 0.68059903, g: 0.6886792, b: 0.26312745, a: 1}
-  - PARTY_ID: 3
+  - PARTY_ID: PRP
     PARTY_NAME: Progressive Party
     PARTY_DESCRIPTION: Left-Wing
     PARTY_IMAGE: {fileID: 3576559370988346463, guid: ef8631e19ea8bbf47b810bc4a0408395, type: 3}
     PARTY_COLOR: {r: 0.38562214, g: 0.6901961, b: 0.2627451, a: 1}
+  - PARTY_ID: COM
+    PARTY_NAME: Communist Party
+    PARTY_DESCRIPTION: Far Left
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: ef8631e19ea8bbf47b810bc4a0408395, type: 3}
+    PARTY_COLOR: {r: 0.6141055, g: 0.2627451, b: 0.6901961, a: 1}
+  - PARTY_ID: LIB
+    PARTY_NAME: Liberty Party
+    PARTY_DESCRIPTION: Far Right
+    PARTY_IMAGE: {fileID: 3576559370988346463, guid: ef8631e19ea8bbf47b810bc4a0408395, type: 3}
+    PARTY_COLOR: {r: 1, g: 0.48850024, b: 0, a: 1}

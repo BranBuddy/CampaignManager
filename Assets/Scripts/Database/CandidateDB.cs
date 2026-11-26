@@ -45,9 +45,9 @@ namespace CampaignManager.Database
         public int CANDIDATE_ID;
         public string FIRST_NAME;
         public string LAST_NAME;
-        public int PARTY_ID;
+        public string PARTY_ID;
         public string STATE_ABBR;
-        public int JOB_ID;
+        public string ROLE_ID;
         public Image CANDIDATE_IMAGE;
     }
 }

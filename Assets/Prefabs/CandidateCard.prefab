@@ -762,7 +762,7 @@ MonoBehaviour:
   CardBackground: {fileID: 4693618896605123722}
   CardImage: {fileID: 1378815772333344591}
   CardDetailsPanel: {fileID: 779031067283495293}
-  CardJobText: {fileID: 2842640044004952750}
+  CardRoleText: {fileID: 2842640044004952750}
   CardStateText: {fileID: 8031381001703578966}
   CardPartyText: {fileID: 3476163347741378050}
 --- !u!114 &526840395808143503

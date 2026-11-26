@@ -13,11 +13,14 @@ namespace CampaignManager.UI.Card
         public Image CardImage;
 
         public GameObject CardDetailsPanel; 
-        public TMP_Text CardJobText;
+        public TMP_Text CardRoleText;
         public TMP_Text CardStateText;
         public TMP_Text CardPartyText;
+        
+        public int CANDIDATE_ID;
 
         private bool isDetailsPanelVisible = false;
+        
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -47,6 +50,11 @@ namespace CampaignManager.UI.Card
             }
 
             targetObject.transform.localScale = targetScale; // Ensure the final scale is set
+        }
+
+        public int ReturnCandidateID()
+        {
+            return CANDIDATE_ID;
         }
 
         public void ShowDetailsPage()

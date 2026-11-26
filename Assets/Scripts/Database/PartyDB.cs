@@ -39,7 +39,7 @@ namespace CampaignManager.Database
     [System.Serializable]
     public class PartyDBColumns
     {
-        public int PARTY_ID;
+        public string PARTY_ID;
         public string PARTY_NAME;
         public string PARTY_DESCRIPTION;
         public Image PARTY_IMAGE;

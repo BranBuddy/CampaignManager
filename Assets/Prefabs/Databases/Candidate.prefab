@@ -51,27 +51,76 @@ MonoBehaviour:
     ColumnName: PARTY_ID
   - TableName: State
     ColumnName: STATE_ID
-  - TableName: Job
-    ColumnName: JOB_ID
+  - TableName: Role
+    ColumnName: ROLE_ID
   entries:
-  - CANDIDATE_ID: 1
+  - CANDIDATE_ID: 0
     FIRST_NAME: Jane
     LAST_NAME: Smtih
-    PARTY_ID: 1
+    PARTY_ID: OPP
     STATE_ABBR: MI
-    JOB_ID: 1
+    ROLE_ID: PRE
     CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: 0551ecf659d25dc48a7a19213da3ac07, type: 3}
-  - CANDIDATE_ID: 2
+  - CANDIDATE_ID: 1
     FIRST_NAME: Rat
     LAST_NAME: King
-    PARTY_ID: 2
+    PARTY_ID: TPA
     STATE_ABBR: MS
-    JOB_ID: 2
+    ROLE_ID: MAY
     CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: d6e3b7a5b35b78243953f29aa6c194e5, type: 3}
-  - CANDIDATE_ID: 0
+  - CANDIDATE_ID: 2
     FIRST_NAME: John
     LAST_NAME: Smith
-    PARTY_ID: 0
+    PARTY_ID: INC
     STATE_ABBR: NE
-    JOB_ID: 0
+    ROLE_ID: GOV
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 3
+    FIRST_NAME: Leslie
+    LAST_NAME: Sequen
+    PARTY_ID: PRP
+    STATE_ABBR: FL
+    ROLE_ID: SEN
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 4
+    FIRST_NAME: Brandon
+    LAST_NAME: Wahl
+    PARTY_ID: INC
+    STATE_ABBR: FL
+    ROLE_ID: GOV
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 5
+    FIRST_NAME: Andrew
+    LAST_NAME: Bates
+    PARTY_ID: LIB
+    STATE_ABBR: ID
+    ROLE_ID: REP
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 6
+    FIRST_NAME: Ashley
+    LAST_NAME: Jenkins
+    PARTY_ID: OPP
+    STATE_ABBR: TN
+    ROLE_ID: MAY
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 7
+    FIRST_NAME: Marco
+    LAST_NAME: Rubio
+    PARTY_ID: OPP
+    STATE_ABBR: FL
+    ROLE_ID: SOS
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 8
+    FIRST_NAME: Bernie
+    LAST_NAME: Sanders
+    PARTY_ID: COM
+    STATE_ABBR: VT
+    ROLE_ID: SEN
+    CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}
+  - CANDIDATE_ID: 9
+    FIRST_NAME: Barack
+    LAST_NAME: Obama
+    PARTY_ID: INC
+    STATE_ABBR: IL
+    ROLE_ID: PRE
     CANDIDATE_IMAGE: {fileID: 3576559370988346463, guid: c97ab81bafafde0448ba3fcf3f6873ab, type: 3}

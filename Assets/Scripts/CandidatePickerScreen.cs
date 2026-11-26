@@ -1,13 +1,13 @@
 using UnityEngine;
-using CampaignManager.GameManager;
+using CampaignManager.Database;
 using CampaignManager.DifficultyManager;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 
-namespace CampaignManager.SetUpGame
+namespace CampaignManager.CandidatePicker
 {
-    public class SetUpGame : MonoBehaviour
+    public class CandidatePickerScreen : MonoBehaviour
     {
         private Difficulty GameDifficulty;
 
@@ -17,19 +17,13 @@ namespace CampaignManager.SetUpGame
 
 
         private Database.DatabaseManager dataBaseManager;    
-        private Database.CandidateDB candidateDB;
-        private Database.PartyDB partyDB;
-        private Database.StateDB stateDB;
-    
+
         private List<GameObject> candidateCards = new List<GameObject>();
 
         private void Start()
         {
             GameDifficulty = GameManager.GameManager.Instance.DifficultyLevel;
             dataBaseManager = Database.DatabaseManager.Instance;
-            candidateDB = dataBaseManager.FetchDatabase("Candidate").GetComponent<Database.CandidateDB>();
-            partyDB = dataBaseManager.FetchDatabase("Party").GetComponent<Database.PartyDB>();
-            stateDB = dataBaseManager.FetchDatabase("State").GetComponent<Database.StateDB>();
             SetUpCandidateCards(GameDifficulty);
         }
 
@@ -94,26 +88,40 @@ namespace CampaignManager.SetUpGame
         private void DesignCandidateCards(int numberOfCards)
         {
             
-            List<Database.CandidateDBColumns> candidateEntries = new List<Database.CandidateDBColumns>(candidateDB.entries);
+            List<Database.CandidateDBColumns> candidateEntries = new List<Database.CandidateDBColumns>(DatabaseManager.Instance.candidateDB.entries);
             
+            print($"Number of candidate entries available: {candidateEntries.Count}");
+
+            List<int> usedIndices = new List<int>();
+
             for (int i = 0; i < numberOfCards; i++)
             {
                 int chosenCandidate = Random.Range(0, candidateEntries.Count);
 
+                if (usedIndices.Contains(chosenCandidate))
+                {
+                    // If the chosen candidate has already been used, decrement i to retry this iteration
+                    i--;
+                    continue;
+                }
+
                 GameObject card = candidateCards[i];
                 UI.Card.CandidateCard cardScript = card.GetComponent<UI.Card.CandidateCard>();
 
-               
+               print($"Chosen candidate index: {chosenCandidate}, CANDIDATE_ID: {candidateEntries[chosenCandidate].CANDIDATE_ID}");
 
                 if (cardScript != null)
                 {
-                    var candidateData = candidateDB.GetData<Database.CandidateDBColumns>(chosenCandidate.ToString());
-                    var partyData = partyDB.GetData<Database.PartyDBColumns>(candidateData.PARTY_ID.ToString());
-                    var stateData = stateDB.GetData<Database.StateDBColumns>(candidateData.STATE_ABBR.ToString());
+                    var candidateData = DatabaseManager.Instance.candidateDB.GetData<CandidateDBColumns>(chosenCandidate.ToString());
+                    var partyData = DatabaseManager.Instance.partyDB.GetData<PartyDBColumns>(candidateData.PARTY_ID.ToString());
+                    var stateData = DatabaseManager.Instance.stateDB.GetData<StateDBColumns>(candidateData.STATE_ABBR.ToString());
+                    var roleData = DatabaseManager.Instance.roleDB.GetData<RoleDBColumns>(candidateData.ROLE_ID.ToString());
                     
                     if (candidateData != null)
                     {
+                        cardScript.CANDIDATE_ID = candidateData.CANDIDATE_ID;
                         cardScript.CardNameText.text = $"{candidateData.FIRST_NAME} {candidateData.LAST_NAME}";
+                        ChangeFontSizeBasedOnLength(cardScript.CardNameText, 13, 20, 18);
                         cardScript.CardImage.sprite = candidateData.CANDIDATE_IMAGE.sprite;
                     }
                     else
@@ -140,20 +148,82 @@ namespace CampaignManager.SetUpGame
                         Debug.LogWarning($"No state data found for STATE_ABBR: {candidateData.STATE_ABBR}");
                     }
 
-                    // Remove the chosen candidate to avoid duplicates
-                    candidateEntries.Remove(candidateEntries[chosenCandidate]);
+                    if (roleData != null)
+                    {
+                        cardScript.CardRoleText.text = roleData.ROLE_NAME;
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"No role data found for ROLE_ID: {candidateData.ROLE_ID}");
+                    }
+                    usedIndices.Add(chosenCandidate);
+
                 }
 
                 
             }
 
         }
+
+        
+
+        public void StartGame(GameObject card)
+        {
+            UI.Card.CandidateCard selectedCard = card.GetComponent<UI.Card.CandidateCard>();
+            if (selectedCard != null)
+            {
+                GameManager.GameManager.Instance.ChosenCandidateID = selectedCard.ReturnCandidateID();
+                Debug.Log($"Chosen Candidate ID: {GameManager.GameManager.Instance.ChosenCandidateID}");
+            }
+            else
+            {
+                Debug.LogError("Failed to get CandidateCard component");
+            }
+
+            DeleteCandidateCards();
+
+            GameManager.GameManager.Instance.StartGame();
+        }
+
+        private void ChangeFontSizeBasedOnLength(TMP_Text textComponent, int maxLength, int defaultFontSize, int reducedFontSize)
+        {
+            if (textComponent.text.Length > maxLength)
+            {
+                textComponent.fontSize = reducedFontSize;
+            }
+            else
+            {
+                textComponent.fontSize = defaultFontSize;
+            }
+        }
+
+        private void DeleteCandidateCards()
+        {
+            foreach (var card in candidateCards)
+            {
+                Destroy(card);
+            }
+            candidateCards.Clear();
+        }
+
         private int CreateCandidateCards(int numberOfCards)
         {
             for (int i = 0; i < numberOfCards; i++)
             {
                 GameObject card = Instantiate(candidateCardPrefab, candidateCardContainer.transform);
                 card.name = $"CandidateCard_{i + 1}";
+                Button cardButton = card.GetComponent<Button>();
+                if (cardButton != null)
+                {
+                    cardButton.onClick.AddListener(() =>
+                    {
+                        StartGame(card);
+                    });
+                }
+                else
+                {
+                    Debug.LogWarning($"No Button component found on {card.name}");
+                }
                 candidateCards.Add(card);
             }
             return numberOfCards;
